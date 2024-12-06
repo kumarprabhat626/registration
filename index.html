@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reg-form</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <div class="container" >
+
+        <h1>Registration form</h1>
+        <form action="WELCOME.HTML" id="rform" onsubmit=" return FormValidation()">
+        <label for="user" class="lb">name</label><br>
+        <input type="text" class="name" id="name" placeholder="enter user name"><br>
+        <p class="error" id="nameerror"></p>
+        <label for="user" class="lb">email</label><br>
+        <input type="email" class="email" id="email" placeholder="enter your email"><br><br>
+        <p class="error" id="emailerror"></p>
+        <label for="user" class="lb">password</label><br>
+        <input type="password" class="password" id="password" placeholder="enter your password"><br><br>
+        <p class="error" id="passworderror"></p>
+        <label for="phoneno" class="lb">phone</label><br>
+        <input type="tel"class="phoneno" id="phoneno" placeholder="enter your phone no"><br><br>
+        <p class="error" id="phoneerror"></p>
+        <label for="user" class="lb">age</label><br>
+        <input type="age" class="age" id="age" placeholder="enter your age"><br><br>
+        <p class="error" id="ageerror"></p>
+        <button id="submit">submit</button>
+        </form>
+    
+    </div>
+
+    <script>
+            var Name=document.getElementById("name")
+            var Email=document.getElementById("email")
+            var Pass =document.getElementById("password")
+            var Phone=document.getElementById("phoneno")
+            var Age=document.getElementById("age")
+            var Nameerror=document.getElementById("nameerror")
+            var Emailerror=document.getElementById("emailerror")
+            var Passerror=document.getElementById("passworderror")
+            var Phoneerror=document.getElementById("phoneerror")
+            var Ageerror=document.getElementById("ageerror")
+
+            Name.addEventListener('input',()=>{
+                if(Name.value==""){
+                    Nameerror.innerHTML="Name can't be blank"
+                }
+                else if(Name.value.length<3){
+                    Nameerror.innerHTML="Name can't be of 3 char!!"
+                }
+                else{
+                    Nameerror.innerHTML=""
+                }
+            })
+
+            Email.addEventListener('input',()=>{
+                if(Email.value==""){
+                    Emailerror.innerHTML="Email can't be blank"
+                }
+                else if(Email.value.length<10){
+                    Emailerror.innerHTML="Email should be 10 char!!"
+                }
+                else{
+                    Emailerror.innerHTML=""
+                }
+            })
+
+            Pass.addEventListener('input',()=>{
+                if(Pass.value==""){
+                    Passerror.innerHTML="Password can't be blank"
+                }
+                else if(Pass.value.length<8){
+                 Passerror.innerHTML="Password should be of 8 char!!"
+                }
+                else{
+                    Passerror.innerHTML=""
+                }
+            })
+
+            Phone.addEventListener('input',()=>{
+                if(Phone.value==""){
+                    Phoneerror.innerHTML="Phone can't be blank"
+                }
+                else if(isNaN(Phone.value)){
+                    Phoneerror.innerHTML="phone should be of number"
+                }
+                else if(Phone.value.length==10){
+                    Phoneerror.innerHTML=""
+                }
+                else{
+                    Phoneerror.innerHTML="phone should be of 10 char!!"
+                }
+            })
+
+            Age.addEventListener('input',()=>{
+                if(Age.value==""){
+                    Ageerror.innerHTML="Age can't be blank"
+                }
+                else if(Age.value<18){
+                    Ageerror.innerHTML="Age should be greater than 18"
+                }
+                else{
+                    Ageerror.innerHTML=""
+                }
+            })
+            function FormValidation(){
+                if(Name.value==""|| Email.value==""|| Phone.value==""|| Pass.value==""|| Age.value=="")
+                {
+                    alert("all fields mut be filled!!")
+                    return false
+                }
+                else{
+                    return true
+                }
+
+
+            }
+    </script>
+</body>
+</html>
